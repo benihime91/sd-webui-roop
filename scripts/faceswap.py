@@ -172,7 +172,8 @@ class FaceSwapScript(scripts.Script):
             else:
                 logger.error(f"Please provide a source face")
 
-    def postprocess_batch(self, p, images, *args, **kwargs):
+    def postprocess_batch(self, p, *args, **kwargs):
+        images = kwargs.get('images', [])
         if self.enable:
             return images
 
